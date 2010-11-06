@@ -1,12 +1,13 @@
-Feature: Manage photos
-  In order to [goal]
-  [stakeholder]
-  wants [behaviour]
+Feature: New entry
+  In order to create a new entry
+  As a user
+  I want to be able to upload a photo
 
-  Scenario: Register new photo
+  Scenario: Upload new photo
     Given I am on the new photo page
     And I fill in "Name" with "Photo one"
     And I fill in "Description" with "This is my description of my problem. I just don't get it."
+    And I attach the "image/jpg" file at "features/support/fractal.jpg" to "file"
     And I press "Create"
     And I should see "Photo one"
     And I should see "This is my description of my problem. I just don't get it."

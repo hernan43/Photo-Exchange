@@ -2,6 +2,10 @@ Given /^the following photos:$/ do |photos|
   Photo.create!(photos.hashes)
 end
 
+Given /^I attach the "([^"]*)" file at "([^"]*)" to "([^"]*)"$/ do |type, path, field|
+  attach_file(field, path, type)
+end
+
 When /^I delete the (\d+)(?:st|nd|rd|th) photo$/ do |pos|
   visit photos_path
   within("table tr:nth-child(#{pos.to_i+1})") do
@@ -12,3 +16,4 @@ end
 Then /^I should see the following photos:$/ do |expected_photos_table|
   expected_photos_table.diff!(tableish('table tr', 'td,th'))
 end
+
